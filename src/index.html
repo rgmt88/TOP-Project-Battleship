@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Battleship!</h1>
+    <div class="container">
+        <!-- Player's Board -->
+        <div>
+            <div class="label">My Ships</div>
+            <div class="board" id="playerBoard"></div>
+        </div>
+        <!-- Player's Ships -->
+        <div class="ships player-ships">
+            <div>Aircraft Carrier</div>
+            <div class="ship-grid" id="playerCarrierGrid"></div>
+
+            <div>Battleship</div>
+            <div class="ship-grid" id="playerBattleshipGrid"></div>
+
+            <div>Cruiser</div>
+            <div class="ship-grid" id="playerCruiserGrid"></div>
+
+            <div>Destroyer</div>
+            <div class="ship-grid" id="playerDestroyerGrid"></div>
+
+            <div>Submarine</div>
+            <div class="ship-grid" id="playerSubmarineGrid"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Opponent's Board -->
+        <div>
+            <div class="label">Their Ships</div>
+            <div class="board" id="opponentBoard"></div>    
+        </div>
+        <!-- Opponent's Ships -->
+        <div class="ships opponent-ships">
+            <div>Aircraft Carrier</div>
+            <div class="ship-grid" id="opponentCarrierGrid"></div>
+
+            <div>Battleship</div>
+            <div class="ship-grid" id="opponentBattleshipGrid"></div>
+
+            <div>Cruiser</div>
+            <div class="ship-grid" id="opponentCruiserGrid"></div>
+
+            <div>Destroyer</div>
+            <div class="ship-grid" id="opponentDestroyerGrid"></div>
+
+            <div>Submarine</div>
+            <div class="ship-grid" id="opponentSubmarineGrid"></div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

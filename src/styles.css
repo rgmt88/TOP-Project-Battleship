@@ -1,0 +1,158 @@
+/* Reset some basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* White background */
+    color: #333333; /* Dark gray text color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333333; /* Dark gray title color */
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 80%;
+    margin-bottom: 30px;
+}
+
+.label {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #333333;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(10, 30px);
+    gap: 1px;
+    border: 1px solid #4f4f4f; /* Dark gray border */
+    overflow: hidden;
+}
+
+.board div {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #333333; /* Darker gray border for grid cells */
+    background-color: #f0f0f0; /* Light gray background for grid cells */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.board div:hover {
+    cursor: pointer;
+    background-color: #cccccc; /* Slightly darker gray on hover */
+}
+
+.ships {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.ship-grid {
+    display: grid;
+    gap: 1px;
+    margin-bottom: 20px;
+}
+
+#playerCarrierGrid, #opponentCarrierGrid {
+    grid-template-columns: repeat(5, 30px); /* Aircraft Carrier: 5 cells */
+}
+
+#playerBattleshipGrid, #opponentBattleshipGrid {
+    grid-template-columns: repeat(4, 30px); /* Battleship: 4 cells */
+}
+
+#playerCruiserGrid, #opponentCruiserGrid {
+    grid-template-columns: repeat(3, 30px); /* Cruiser: 3 cells */
+}
+
+#playerDestroyerGrid, #opponentDestroyerGrid {
+    grid-template-columns: repeat(2, 30px); /* Destroyer: 2 cells */
+}
+
+#playerSubmarineGrid, #opponentSubmarineGrid {
+    grid-template-columns: repeat(1, 30px); /* Submarine: 1 cell */
+}
+
+.ship-grid div {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #4f4f4f; /* Border for ship grid cells */
+    background-color: #f0f0f0; /* Dark gray for ship grid cells */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.ship-grid div.hit {
+    background-color: #ff4d6d; /* Red color to indicate a hit */
+}
+
+.ship-grid div:hover {
+    cursor: default; /* No hover effect on ship grids for now */
+}
+
+/* Optional: Adding some animation for hits */
+.ship-grid div.hit {
+    animation: hit 0.5s ease-in-out;
+}
+
+@keyframes hit {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+        background-color: #ff4d6d;
+    }
+    100% {
+        transform: scale(1);
+        background-color: #ff4d6d;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .board, .ship-grid {
+        grid-template-columns: repeat(10, 24px);
+        grid-template-rows: repeat(10, 24px);
+    }
+
+    .board div, .ship-grid div {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+
+

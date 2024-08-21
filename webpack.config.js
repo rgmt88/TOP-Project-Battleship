@@ -1,10 +1,12 @@
-const path = require('path');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+export default {
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(process.cwd(), 'dist'),
+    clean: true, // Cleans the output directory before each build
   },
   module: {
     rules: [
@@ -18,7 +20,17 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html', // Path to your template
+      filename: 'index.html', // Name of the output HTML file
+    }),
+  ],
   mode: 'development',
 };
