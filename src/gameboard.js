@@ -66,6 +66,10 @@ function gameboard() {
 
         getHitCoordinates() {
             return hitCoordinates;
+        },
+
+        getShips() {
+            return ships;
         }
     };
 }

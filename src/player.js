@@ -1,4 +1,4 @@
-import { gameboard } from "./gameboard";
+import { gameboard } from "./gameboard.js";
 
 function player(isComputer = false) {
     const board = gameboard();

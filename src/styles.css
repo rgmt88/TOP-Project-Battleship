@@ -64,6 +64,19 @@ h1 {
     background-color: #cccccc; /* Slightly darker gray on hover */
 }
 
+.board .ship-cell {
+    background-color: #525252; /* Dark gray to represent the ship */
+    border: 1px solid #333333; /* A bit darker border for better visibility */
+}
+
+.board .hit-cell {
+    background-color: red; /* Red to represent a hit */
+}
+
+.board .miss-cell {
+    background-color: #00aaff; /* Blue to represent a miss, like the ocean */
+}
+
 .ships {
     display: flex;
     flex-direction: column;
