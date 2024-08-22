@@ -121,6 +121,11 @@ h1 {
     transition: background-color 0.3s;
 }
 
+.ship-grid .sunk-cell {
+    background-color: red;
+    opacity: 0.8;
+}
+
 .ship-grid div.hit {
     background-color: #ff4d6d; /* Red color to indicate a hit */
 }
@@ -166,6 +171,3 @@ h1 {
         height: 24px;
     }
 }
-
-
-
