@@ -1,7 +1,9 @@
-function playersRenderGrid(player, boardId = 'playerBoard') {
+function playersRenderGrid(player, boardId) {
     const boardElement = document.getElementById(boardId);
     // Clear existing grid
-    boardElement.innerHTML = ''; 
+    boardElement.innerHTML = '';
+    
+    const isOpponentBoard = boardId === 'opponentBoard';
 
     for (let i = 0; i < 10; i++) {
         for (let j = 0; j < 10; j++) {
@@ -18,8 +20,8 @@ function playersRenderGrid(player, boardId = 'playerBoard') {
             // Check if there's a missed attack at this coordinate
             const isMiss = player.board.getMissedAttacks().some(([x, y]) => x === i && y === j);
 
-            if (hasShip) {
-                // Add ship class
+            if (hasShip && !isOpponentBoard) {
+                // Add ship class only if it's not the opponent's board
                 cell.classList.add('ship-cell');
             }
             if (isHit) {

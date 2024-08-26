@@ -1,7 +1,7 @@
 import { ship } from './ship.js'
 import { playersRenderGrid } from './playersGrid.js';
 
-function placeShips(player, boardId = 'playerBoard') {
+function placeShips(player, boardId) {
     const carrier = ship(5);
     const battleship = ship(4);
     const cruiser = ship(3);

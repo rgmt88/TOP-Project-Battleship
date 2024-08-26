@@ -28,8 +28,7 @@ function gameboard() {
         },
 
         receiveAttack(x, y) {
-            const alreadyAttacked = hitCoordinates.some(([hitX, hitY]) => hitX === x && hitY === y) ||
-                                    missedAttacks.some(([missX, missY]) => missX === x && missY ===y);
+            const alreadyAttacked = hitCoordinates.some(([hitX, hitY]) => hitX === x && hitY == y) || missedAttacks.some(([missX, missY]) => missX === x && missY ===y);
 
             if (alreadyAttacked) {
                 return "already attacked";

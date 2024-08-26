@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const opponentInstance = player(true);
 
     // Initial grid rendering
-    playersRenderGrid(playerInstance);
+    playersRenderGrid(playerInstance, 'playerBoard');
     playersRenderGrid(opponentInstance, 'opponentBoard');
 
     // Place ships and update the grid
-    placeShips(playerInstance);
+    placeShips(playerInstance, 'playerBoard');
     placeShips(opponentInstance, 'opponentBoard');
 
     // Update ship grids to reflect initial placement
