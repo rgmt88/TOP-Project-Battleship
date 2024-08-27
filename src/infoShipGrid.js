@@ -1,4 +1,4 @@
-function createShipGrid(shipGridElement, length, isSunk = false) {
+function createShipGrid(shipGridElement, length, isSunk = false, hitIndexes = [], isPlayer = true) {
     // Clear existing grid
     shipGridElement.innerHTML = '';
 
@@ -10,6 +10,11 @@ function createShipGrid(shipGridElement, length, isSunk = false) {
         if (isSunk) {
             // Add a class to represent a sunk ship
             cell.classList.add('sunk-cell');
+        }
+
+        if (isPlayer && hitIndexes.includes(i)) {
+            // Add a class to represent a hit part of the ship, but only for the player
+            cell.classList.add('hit-cell');
         }
 
         shipGridElement.appendChild(cell);
@@ -30,12 +35,22 @@ function updateShipGrids(player, isPlayer = true) {
     const ships = player.board.getShips();
 
     ships.forEach((shipData, index) => {
-        const { ship } = shipData;
+        const { ship, coordinates } = shipData;
         const isSunk = ship.isSunk();
+
+        // Determine which parts of the ship have been hit
+        const hitIndexes = coordinates.reduce((acc, [x, y], idx) => {
+            if (player.board.getHitCoordinates().some(([hitX, hitY]) => hitX === x && hitY === y)) {
+                acc.push(idx);    
+            }
+            return acc;
+        }, []);
+
+
         const { elementId, length } = shipGrids[index];
         const shipGridElement = document.getElementById(elementId);
 
-        createShipGrid(shipGridElement, length, isSunk);
+        createShipGrid(shipGridElement, length, isSunk, hitIndexes, isPlayer);
     });
 }
 
