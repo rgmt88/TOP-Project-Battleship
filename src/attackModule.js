@@ -1,4 +1,5 @@
 import { playersRenderGrid } from "./playersGrid.js";
+import { updateShipGrids } from "./infoShipGrid.js";
 
 function setupPlayerAttack(player, playerBoardId, opponent, opponentBoardId) {
     const opponentBoard = document.getElementById(opponentBoardId);
@@ -17,6 +18,7 @@ function playerAttack(x, y, player, playerBoardId, opponent, opponentBoardId) {
 
     // Update the opponent's board to reflect the result of the attack
     playersRenderGrid(opponent, opponentBoardId);
+    updateShipGrids(opponent, false);
 
     // Check if the game is over after the player's attack
     if (checkIfGameOver(player, opponent)) return;
@@ -40,6 +42,7 @@ function computerTurn(opponent, player, playerBoardId, onTurnEnd = () => {}) {
     
     // Update the player's board to reflect the result of the PC's attack
     playersRenderGrid(player, playerBoardId);
+    updateShipGrids(player, true);
     
     // Check if the game is over after the PC's attack
     if (checkIfGameOver(player, opponent)) return;
