@@ -1,5 +1,6 @@
 import { playersRenderGrid } from "./playersGrid.js";
 import { updateShipGrids } from "./infoShipGrid.js";
+import { updateGameMessage } from "./updateGameMsg.js";
 
 function setupPlayerAttack(player, playerBoardId, opponent, opponentBoardId) {
     const opponentBoard = document.getElementById(opponentBoardId);
@@ -25,12 +26,14 @@ function playerAttack(x, y, player, playerBoardId, opponent, opponentBoardId) {
 
     // If the player's attack was a hit, they get another turn
     if (result === 'hit') {
+        updateGameMessage('Hit! Attack again!');
         // Allow the player to click and attack again
         return; 
     }
 
     // If the player's attack was a miss, let the PC (opponent) take a turn after a short delay
     if (result === 'miss') {
+        updateGameMessage('Miss! It\'s the computer\'s turn.');
         setTimeout(() => {
             computerTurn(opponent, player, playerBoardId);
         }, 1000); // Give a slight delay before attack
@@ -38,6 +41,8 @@ function playerAttack(x, y, player, playerBoardId, opponent, opponentBoardId) {
 }
 
 function computerTurn(opponent, player, playerBoardId, onTurnEnd = () => {}) {
+    updateGameMessage('Computer\'s turn...')
+    
     const result = opponent.randomAttack(player.board);
     
     // Update the player's board to reflect the result of the PC's attack
@@ -49,6 +54,7 @@ function computerTurn(opponent, player, playerBoardId, onTurnEnd = () => {}) {
 
     // If the PC hits, it gets another turn
     if (result === 'hit') {
+        updateGameMessage('Computer hit your ship! It attacks again.')
         setTimeout(() => {
             computerTurn(opponent, player, playerBoardId, onTurnEnd);
         }, 1000); // Optional delay to simulate thinking time
@@ -58,7 +64,7 @@ function computerTurn(opponent, player, playerBoardId, onTurnEnd = () => {}) {
     if (result === 'miss') {
         // Allow the player to take their turn
         // SetupPlayerAttack remains active for player input
-        console.log('PC missed! Player\'s turn.');
+        updateGameMessage('Computer missed! Your turn.');
         onTurnEnd(); // Call the callback function to set up the player's turn only after a miss
     }
 }

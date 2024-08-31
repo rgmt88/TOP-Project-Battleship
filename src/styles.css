@@ -176,3 +176,48 @@ h1 {
         height: 24px;
     }
 }
+
+/* Game Information Section */
+.game-info {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    border: 1px solid #cccccc; /* Light gray border */
+    background-color: #f9f9f9; /* Very light gray background for contrast */
+    color: #333333; /* Dark gray text */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center;
+    width: 80%;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Game Controls Section */
+.game-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.game-controls button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #757575; /* Uniform medium gray color */
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition on hover */
+    width: 120px; /* Fixed width for all buttons */
+    height: 40px; /* Uniform height for buttons */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.game-controls button:disabled {
+    background-color: #b0b0b0; /* Light gray when disabled */
+    cursor: not-allowed;
+}
+
+.game-controls button:hover:not(:disabled) {
+    background-color: #616161; /* Slightly darker gray on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
