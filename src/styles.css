@@ -40,6 +40,10 @@ h1 {
 }
 
 .board {
+    display: none;
+}
+
+.board.visible {
     display: grid;
     grid-template-columns: repeat(10, 30px);
     grid-template-rows: repeat(10, 30px);
@@ -56,12 +60,13 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s;
+    transition: background-color 0.0s;
 }
 
 .board div:hover {
     cursor: pointer;
     background-color: #cccccc; /* Slightly darker gray on hover */
+    transition: none;
 }
 
 .board .ship-cell {
@@ -70,11 +75,11 @@ h1 {
 }
 
 .board .hit-cell {
-    background-color: red; /* Red to represent a hit */
+    background-color: red !important; /* Red to represent a hit */
 }
 
 .board .miss-cell {
-    background-color: #00aaff; /* Blue to represent a miss, like the ocean */
+    background-color: #00aaff !important; /* Blue to represent a miss, like the ocean */
 }
 
 .ships {
@@ -118,7 +123,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s;
+    transition: background-color 0.0s;
 }
 
 .ship-grid .sunk-cell {
@@ -136,7 +141,7 @@ h1 {
 
 /* Optional: Adding some animation for hits */
 .ship-grid div.hit {
-    animation: hit 0.5s ease-in-out;
+    animation: none;
 }
 
 @keyframes hit {

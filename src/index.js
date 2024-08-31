@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     placeShips(playerInstance, 'playerBoard');
     placeShips(opponentInstance, 'opponentBoard');
 
+    document.querySelectorAll('.board').forEach(board => board.classList.add('visible'));
+
     // Update ship grids to reflect initial placement
     updateShipGrids(playerInstance, true);
     updateShipGrids(opponentInstance, false);
