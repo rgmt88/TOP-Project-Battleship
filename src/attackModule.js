@@ -71,10 +71,10 @@ function computerTurn(opponent, player, playerBoardId, onTurnEnd = () => {}) {
 
 function checkIfGameOver(player, opponent) {
     if (player.board.allShipsSunk()) {
-        alert('Game Over! The PC wins!');
+        updateGameMessage('Game Over! The PC wins!');
         return true;
     } else if (opponent.board.allShipsSunk()) {
-        alert('Congratulations! You win!');
+        updateGameMessage('Congratulations! You win!');
         return true;
     }
     return false;
