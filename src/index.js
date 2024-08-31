@@ -3,6 +3,7 @@ import { player } from './player.js';
 import { playersRenderGrid } from './playersGrid.js';
 import { updateShipGrids } from './infoShipGrid.js';
 import { placeShips } from './placeShips.js';
+import { setupPlayerAttack } from './attackModule.js';
 
 document.addEventListener('DOMContentLoaded', (event) => {
     // Create player and opponent instances
@@ -21,4 +22,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     updateShipGrids(playerInstance, true);
     updateShipGrids(opponentInstance, false);
 
+    setupPlayerAttack(playerInstance, 'playerBoard', opponentInstance, 'opponentBoard');
+
+    
 });
