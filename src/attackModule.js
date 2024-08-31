@@ -35,7 +35,7 @@ function playerAttack(x, y, player, playerBoardId, opponent, opponentBoardId) {
     }
 }
 
-function computerTurn(opponent, player, playerBoardId) {
+function computerTurn(opponent, player, playerBoardId, onTurnEnd = () => {}) {
     const result = opponent.randomAttack(player.board);
     
     // Update the player's board to reflect the result of the PC's attack
@@ -47,15 +47,16 @@ function computerTurn(opponent, player, playerBoardId) {
     // If the PC hits, it gets another turn
     if (result === 'hit') {
         setTimeout(() => {
-            computerTurn(opponent, player, playerBoardId);
+            computerTurn(opponent, player, playerBoardId, onTurnEnd);
         }, 1000); // Optional delay to simulate thinking time
     }
 
-    // If the Pc misses, the turn goes back to the player
+    // If the PC misses, the turn goes back to the player
     if (result === 'miss') {
         // Allow the player to take their turn
         // SetupPlayerAttack remains active for player input
         console.log('PC missed! Player\'s turn.');
+        onTurnEnd(); // Call the callback function to set up the player's turn only after a miss
     }
 }
 
