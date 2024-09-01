@@ -17,6 +17,19 @@ body {
     padding: 20px;
 }
 
+/* Header Section */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between the image and heading */
+    margin-bottom: 20px;
+}
+
+.header .logo {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+}
+
 h1 {
     font-size: 2.5rem;
     color: #333333; /* Dark gray title color */

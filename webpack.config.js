@@ -24,6 +24,13 @@ export default {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/i, // Add this rule for images
+        type: 'asset/resource', // Automatically handles images as separate files
+        generator: {
+          filename: 'images/[name][ext]', // Optional: Customize output path for images
+        },
+      },
     ],
   },
   plugins: [
@@ -34,3 +41,4 @@ export default {
   ],
   mode: 'development',
 };
+
