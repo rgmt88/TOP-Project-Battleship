@@ -80,12 +80,22 @@ function computerTurn(opponent, player, playerBoardId, onTurnEnd = () => {}) {
 function checkIfGameOver(player, opponent) {
     if (player.board.allShipsSunk()) {
         updateGameMessage('Game Over! The PC wins!');
+        disablePlayerAttack();
         return true;
     } else if (opponent.board.allShipsSunk()) {
         updateGameMessage('Congratulations! You win!');
+        disablePlayerAttack();
         return true;
     }
     return false;
 }
 
-export { setupPlayerAttack, playerAttack, computerTurn, checkIfGameOver };
+// Function to disable player attack by removing event listeners
+function disablePlayerAttack() {
+    const opponentBoard = document.getElementById('opponentBoard')
+    // Clone the element to remove all event listeners attached to it
+    const newBoard = opponentBoard.cloneNode(true);
+    opponentBoard.parentNode.replaceChild(newBoard, opponentBoard);
+}
+
+export { setupPlayerAttack, playerAttack, computerTurn, checkIfGameOver, disablePlayerAttack };
