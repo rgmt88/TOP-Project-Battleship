@@ -25,10 +25,17 @@ export default {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg)$/i, // Add this rule for images
-        type: 'asset/resource', // Automatically handles images as separate files
+        test: /\.(png|jpg|jpeg|gif|svg)$/i, // Rule for images
+        type: 'asset/resource', // Handles images as separate files
         generator: {
-          filename: 'images/[name][ext]', // Optional: Customize output path for images
+          filename: 'images/[name][ext]', // Customize output path for images
+        },
+      },
+      {
+        test: /\.(mp3|wav|ogg)$/i, // Rule for audio files
+        type: 'asset/resource', // Handles audio as separate files
+        generator: {
+          filename: 'sounds/[name][ext]', // Customize output path for audio files
         },
       },
     ],
