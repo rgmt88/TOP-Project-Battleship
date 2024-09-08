@@ -5,6 +5,7 @@ import { updateShipGrids } from './infoShipGrid.js';
 import { placeShips } from './placeShips.js';
 import { setupPlayerAttack, computerTurn } from './attackModule.js';
 import { decideFirstPlayer } from './decideFirstPlayer.js';
+import { randomShipPlacement } from './randomShipPlacement.js'
 
 document.addEventListener('DOMContentLoaded', (event) => {
     // Create player and opponent instances
@@ -15,11 +16,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     playersRenderGrid(playerInstance, 'playerBoard');
     playersRenderGrid(opponentInstance, 'opponentBoard');
 
+    document.querySelectorAll('.board').forEach(board => board.classList.add('visible'));
+
     // Place ships and update the grid
     placeShips(playerInstance, 'playerBoard');
-    placeShips(opponentInstance, 'opponentBoard');
-
-    document.querySelectorAll('.board').forEach(board => board.classList.add('visible'));
+    //randomShipPlacement(playerInstance, 'playerBoard');
+    randomShipPlacement(opponentInstance, 'opponentBoard');
 
     // Update ship grids to reflect initial placement
     updateShipGrids(playerInstance, true);

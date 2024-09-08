@@ -1,4 +1,4 @@
-function createShipGrid(shipGridElement, length, isSunk = false, hitIndexes = [], isPlayer = true) {
+function createShipGrid(shipGridElement, length, isSunk = false, hitIndexes = [], isPlayer = true, setupPhase = false) {
     // Clear existing grid
     shipGridElement.innerHTML = '';
 
@@ -17,11 +17,26 @@ function createShipGrid(shipGridElement, length, isSunk = false, hitIndexes = []
             cell.classList.add('hit-cell');
         }
 
+        if (setupPhase) {
+            addSetupInteraction(cell, shipGridElement, i, length);
+        }
+
         shipGridElement.appendChild(cell);
     }
 }
 
-function updateShipGrids(player, isPlayer = true) {
+// Helper function to add interaction for ship setup phase
+function addSetupInteraction(cell, shipGridElement, index, length) {
+    cell.classList.add('setup-cell');
+    cell.addEventListener('click', () => handleShipPlacement(shipGridElement, index, length));
+}
+
+// Function to handle ship placement logic during setup
+function handleShipPlacement(shipGridElement, startIndex, length) {
+
+}
+
+function updateShipGrids(player, isPlayer = true, setupPhase = false) {
     const prefix = isPlayer ? 'player' : 'opponent';
 
     const shipGrids = [
@@ -33,6 +48,13 @@ function updateShipGrids(player, isPlayer = true) {
     ];
 
     const ships = player.board.getShips();
+
+    if (setupPhase && ships.length === 0) {
+        shipGrids.forEach(({ elementId, length }) => {
+            const shipGridElement = document.getElementById(elementId);
+            createShipGrid(shipGridElement, length, false, [], isPlayer, setupPhase);
+        })
+    }
 
     ships.forEach((shipData, index) => {
         const { ship, coordinates } = shipData;
