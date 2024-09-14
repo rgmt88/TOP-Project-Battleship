@@ -235,38 +235,27 @@ h1 {
     transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
-.setup-cell {
-    background-color: #1e90ff; /* Bright blue color for setup phase */
-    border: 1px solid #007acc; /* Slightly darker blue border */
-    cursor: pointer; /* Indicates that the cell is interactive */
-    transition: background-color 0.3s ease; /* Smooth transition effect */
+/* Visual feedback for the start point of ship placement */
+.start-point {
+    background-color: #4dabf7; /* Light blue color to indicate the start point */
+    border: 1px solid #357ABD; /* Darker blue border */
 }
 
-.setup-cell:hover {
-    background-color: #0096ff; /* Slightly lighter blue on hover */
-    border: 1px solid #005f99; /* Darker blue border on hover */
-}
-
-/* .setup-cell: Indicates interactive cells ready for placement */
-.setup-cell {
-    background-color: #cce7ff; /* Light blue to indicate a cell is part of ship setup */
-    border: 2px dashed #007bff; /* Dashed border to signal interaction */
-}
-
-/* .preview-ship: Represents the visual preview of the ship before confirmation */
+/* Preview of the ship's placement */
 .preview-ship {
-    background-color: #99ccff; /* Soft blue to give feedback during placement */
-    border: 1px solid #007bff;
+    background-color: #8ab4f8; /* Light blue color to preview the ship */
+    border: 1px dashed #357ABD; /* Dashed border for better visibility */
 }
 
-/* .invalid-placement: Indicates invalid placement cells */
-.invalid-placement {
-    background-color: #ff6666; /* Bright red to alert the user of an invalid placement */
-    border: 1px solid #ff0000; /* Solid red border for emphasis */
-}
-
-/* .final-ship: Represents cells that have been finalized as part of a ship */
+/* Finalized ship placement */
 .final-ship {
-    background-color: #4a90e2; /* Darker blue to confirm successful placement */
-    border: 1px solid #003366; /* Solid border to differentiate from other ship classes */
+    background-color: #525252; /* Dark gray to represent the ship */
+    border: 1px solid #333333; /* A bit darker border for better visibility */
 }
+
+/* Invalid placement styling */
+.invalid-placement {
+    background-color: #ff4d4d; /* Red color indicating invalid placement */
+    border: 1px solid #ff0000; /* Red border for better visibility */
+}
+
