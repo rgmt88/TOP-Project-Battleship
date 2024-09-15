@@ -30,7 +30,7 @@ function placeShips(player, boardId, onComplete) {
             updateGameMessage('All ships placed! Ready to start.')
 
             // Revert the .game-info styling to its original state
-            gameInfoElement.style.border = '1px solid 3cccccc';
+            gameInfoElement.style.border = '1px solid #cccccc';
             gameInfoElement.style.backgroundColor = '#f9f9f9';
             onComplete();
             return;

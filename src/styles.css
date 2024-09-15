@@ -66,8 +66,8 @@ h1 {
 }
 
 .board div {
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     border: 1px solid #333333; /* Darker gray border for grid cells */
     background-color: #f0f0f0; /* Light gray background for grid cells */
     display: flex;
@@ -129,8 +129,8 @@ h1 {
 }
 
 .ship-grid div {
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     border: 1px solid #4f4f4f; /* Border for ship grid cells */
     background-color: #f0f0f0; /* Dark gray for ship grid cells */
     display: flex;
@@ -185,8 +185,8 @@ h1 {
     }
 
     .board div, .ship-grid div {
-        width: 24px;
-        height: 24px;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 }
 
