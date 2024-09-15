@@ -110,6 +110,36 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/sounds/fire_shot.mp3":
+/*!**********************************!*\
+  !*** ./src/sounds/fire_shot.mp3 ***!
+  \**********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"sounds/fire_shot.mp3\";\n\n//# sourceURL=webpack://top-project-battleship/./src/sounds/fire_shot.mp3?");
+
+/***/ }),
+
+/***/ "./src/sounds/shot_hit.mp3":
+/*!*********************************!*\
+  !*** ./src/sounds/shot_hit.mp3 ***!
+  \*********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"sounds/shot_hit.mp3\";\n\n//# sourceURL=webpack://top-project-battleship/./src/sounds/shot_hit.mp3?");
+
+/***/ }),
+
+/***/ "./src/sounds/shot_miss.mp3":
+/*!**********************************!*\
+  !*** ./src/sounds/shot_miss.mp3 ***!
+  \**********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"sounds/shot_miss.mp3\";\n\n//# sourceURL=webpack://top-project-battleship/./src/sounds/shot_miss.mp3?");
+
+/***/ }),
+
 /***/ "./src/attackModule.js":
 /*!*****************************!*\
   !*** ./src/attackModule.js ***!
@@ -176,7 +206,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   fireSound: () => (/* binding */ fireSound),\n/* harmony export */   hitSound: () => (/* binding */ hitSound),\n/* harmony export */   missSound: () => (/* binding */ missSound),\n/* harmony export */   playSound: () => (/* binding */ playSound)\n/* harmony export */ });\nvar fireSound = new Audio('/src/sounds/fire_shot.mp3');\nvar hitSound = new Audio('/src/sounds/shot_hit.mp3');\nvar missSound = new Audio('/src/sounds/shot_miss.mp3');\nfunction playSound(sound) {\n  // Reset the sound to start if played multiple times\n  sound.currentTime = 0;\n  sound.play();\n}\n\n\n//# sourceURL=webpack://top-project-battleship/./src/playSound.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   fireSound: () => (/* binding */ fireSound),\n/* harmony export */   hitSound: () => (/* binding */ hitSound),\n/* harmony export */   missSound: () => (/* binding */ missSound),\n/* harmony export */   playSound: () => (/* binding */ playSound)\n/* harmony export */ });\n/* harmony import */ var _sounds_fire_shot_mp3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! .//sounds/fire_shot.mp3 */ \"./src/sounds/fire_shot.mp3\");\n/* harmony import */ var _sounds_shot_hit_mp3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! .//sounds/shot_hit.mp3 */ \"./src/sounds/shot_hit.mp3\");\n/* harmony import */ var _sounds_shot_miss_mp3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! .//sounds/shot_miss.mp3 */ \"./src/sounds/shot_miss.mp3\");\n\n\n\nvar fireSound = new Audio(_sounds_fire_shot_mp3__WEBPACK_IMPORTED_MODULE_0__);\nvar hitSound = new Audio(_sounds_shot_hit_mp3__WEBPACK_IMPORTED_MODULE_1__);\nvar missSound = new Audio(_sounds_shot_miss_mp3__WEBPACK_IMPORTED_MODULE_2__);\nfunction playSound(sound) {\n  // Reset the sound to start if played multiple times\n  sound.currentTime = 0;\n  sound.play();\n}\n\n\n//# sourceURL=webpack://top-project-battleship/./src/playSound.js?");
 
 /***/ }),
 
@@ -281,6 +311,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -295,6 +337,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/nonce */

@@ -1,6 +1,6 @@
-import fireSoundFile from './sounds/fire_shot.mp3';
-import hitSoundFile from '/sounds/shot_hit.mp3';
-import missSoundFile from '/sounds/shot_miss.mp3';
+import fireSoundFile from './/sounds/fire_shot.mp3';
+import hitSoundFile from './/sounds/shot_hit.mp3';
+import missSoundFile from './/sounds/shot_miss.mp3';
 
 const fireSound = new Audio(fireSoundFile);
 const hitSound = new Audio(hitSoundFile);
