@@ -40,6 +40,7 @@ function startGame() {
 
         // Determine who starts first and set up the appropriate turn
         if (decideFirstPlayer() === 'player') {
+            updateGameMessage('You start first! Make your attack.');
             setupPlayerAttack(playerInstance, 'playerBoard', opponentInstance, 'opponentBoard');
         } else {
             computerTurn(opponentInstance, playerInstance, 'playerBoard', () => {
