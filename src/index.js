@@ -6,34 +6,54 @@ import { placeShips } from './placeShips.js';
 import { setupPlayerAttack, computerTurn } from './attackModule.js';
 import { decideFirstPlayer } from './decideFirstPlayer.js';
 import { randomShipPlacement } from './randomShipPlacement.js'
+import { updateGameMessage } from './updateGameMsg.js';
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    // Create player and opponent instances
-    const playerInstance = player();
-    const opponentInstance = player(true);
+// Create player and opponent instances
+const playerInstance = player();
+const opponentInstance = player(true);
 
-    // Initial grid rendering
-    playersRenderGrid(playerInstance, 'playerBoard');
-    playersRenderGrid(opponentInstance, 'opponentBoard');
+// Initial grid rendering
+playersRenderGrid(playerInstance, 'playerBoard');
+playersRenderGrid(opponentInstance, 'opponentBoard');
 
-    document.querySelectorAll('.board').forEach(board => board.classList.add('visible'));
+// Make the boards visible
+document.querySelectorAll('.board').forEach(board => board.classList.add('visible'));
 
-    // Place ships and update the grid
-    placeShips(playerInstance, 'playerBoard');
-    //randomShipPlacement(playerInstance, 'playerBoard');
-    randomShipPlacement(opponentInstance, 'opponentBoard');
+// Get references to the start and reset buttons
+const startGameBtn = document.getElementById('startGameBtn');
+const abandonGameBtn = document.getElementById('abandonGameBtn');
 
-    // Update ship grids to reflect initial placement
-    updateShipGrids(playerInstance, true);
-    updateShipGrids(opponentInstance, false);
+// Disable the reset button until the game is started
+abandonGameBtn.disabled = true;
 
-    // Determine who starts first and set up the appropriate turn
-    if (decideFirstPlayer() === 'player') {
-        setupPlayerAttack(playerInstance, 'playerBoard', opponentInstance, 'opponentBoard');
-    } else {
-        // Let the computer take its turn, then set up the player's attack
-        computerTurn(opponentInstance, playerInstance, 'playerBoard', () => {
+// Function to start the ship placement phase
+function startGame() {
+    updateGameMessage('Place your ships. Click on the start and end positions for each ship.');
+    startGameBtn.disabled = true;
+    abandonGameBtn.disabled = false;
+
+    // Begin ship placement for the player
+    placeShips(playerInstance, 'playerBoard', () => {
+        // Once all ships are placed, place opponent ships and start the game
+        randomShipPlacement(opponentInstance, 'opponentBoard');
+        updateShipGrids(opponentInstance, false);
+
+        // Determine who starts first and set up the appropriate turn
+        if (decideFirstPlayer() === 'player') {
             setupPlayerAttack(playerInstance, 'playerBoard', opponentInstance, 'opponentBoard');
-        });
-    } 
-});
+        } else {
+            computerTurn(opponentInstance, playerInstance, 'playerBoard', () => {
+                setupPlayerAttack(playerInstance, 'playerBoard', opponentInstance, 'opponentBoard');
+            });
+        }
+    });
+}
+
+// Add event listeners to start and reset buttons
+startGameBtn.addEventListener('click', startGame);
+
+// Abandon Game logic - Reset everything when implemented
+abandonGameBtn.addEventListener('click', () => {
+    // Basic approach to reset the game, reload the page
+    location.reload();
+})

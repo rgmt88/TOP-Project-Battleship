@@ -73,7 +73,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.0s;
+    transition: none;
 }
 
 .board div:hover {
@@ -237,25 +237,25 @@ h1 {
 
 /* Visual feedback for the start point of ship placement */
 .start-point {
-    background-color: #4dabf7; /* Light blue color to indicate the start point */
-    border: 1px solid #357ABD; /* Darker blue border */
+    background-color: #4dabf7 !important; /* Light blue color to indicate the start point */
+    border: 2px solid #357ABD !important; /* Darker blue border */
 }
 
 /* Preview of the ship's placement */
 .preview-ship {
-    background-color: #8ab4f8; /* Light blue color to preview the ship */
-    border: 1px dashed #357ABD; /* Dashed border for better visibility */
+    background-color: #8ab4f8 !important; /* Light blue color to preview the ship */
+    border: 2px dashed #357ABD !important; /* Dashed border for better visibility */
 }
 
 /* Finalized ship placement */
 .final-ship {
-    background-color: #525252; /* Dark gray to represent the ship */
-    border: 1px solid #333333; /* A bit darker border for better visibility */
+    background-color: #525252 !important; /* Dark gray to represent the ship */
+    border: 2px solid #333333 !important; /* A bit darker border for better visibility */
 }
 
 /* Invalid placement styling */
 .invalid-placement {
-    background-color: #ff4d4d; /* Red color indicating invalid placement */
-    border: 1px solid #ff0000; /* Red border for better visibility */
+    background-color: #ff4d4d !important; /* Red color indicating invalid placement */
+    border: 2px solid #ff0000 !important; /* Red border for better visibility */
 }
 
