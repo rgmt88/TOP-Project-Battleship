@@ -1,6 +1,6 @@
-const fireSound = new Audio('/home/rgmt88/repos/TOP-Project-Battleship/src/sounds/fire_shot.mp3');
-const hitSound = new Audio('/home/rgmt88/repos/TOP-Project-Battleship/src/sounds/shot_hit.mp3');
-const missSound = new Audio('/home/rgmt88/repos/TOP-Project-Battleship/src/sounds/shot_miss.mp3')
+const fireSound = new Audio('/src/sounds/fire_shot.mp3');
+const hitSound = new Audio('/src/sounds/shot_hit.mp3');
+const missSound = new Audio('/src/sounds/shot_miss.mp3')
 
 function playSound(sound) {
     // Reset the sound to start if played multiple times
