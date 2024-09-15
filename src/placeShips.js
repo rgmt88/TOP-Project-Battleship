@@ -4,7 +4,7 @@ import { updateGameMessage } from './updateGameMsg.js';
 import { updateShipGrids } from './infoShipGrid.js';
 
 // Function to initiate ship placement process
-function placeShips(player, boardId) {
+function placeShips(player, boardId, onComplete) {
     // Define the ships with their lengths
     const ships = [
         { name: 'Carrier', length: 5 },
@@ -32,6 +32,7 @@ function placeShips(player, boardId) {
             // Revert the .game-info styling to its original state
             gameInfoElement.style.border = '1px solid 3cccccc';
             gameInfoElement.style.backgroundColor = '#f9f9f9';
+            onComplete();
             return;
         }
 
