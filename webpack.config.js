@@ -44,6 +44,7 @@ export default {
     new HtmlWebpackPlugin({
       template: './src/index.html', // Path to your template
       filename: 'index.html', // Name of the output HTML file
+      inject: 'body',
     }),
   ],
   mode: 'development',

@@ -1,6 +1,10 @@
-const fireSound = new Audio('/src/sounds/fire_shot.mp3');
-const hitSound = new Audio('/src/sounds/shot_hit.mp3');
-const missSound = new Audio('/src/sounds/shot_miss.mp3')
+import fireSoundFile from './sounds/fire_shot.mp3';
+import hitSoundFile from '/sounds/shot_hit.mp3';
+import missSoundFile from '/sounds/shot_miss.mp3';
+
+const fireSound = new Audio(fireSoundFile);
+const hitSound = new Audio(hitSoundFile);
+const missSound = new Audio(missSoundFile);
 
 function playSound(sound) {
     // Reset the sound to start if played multiple times
