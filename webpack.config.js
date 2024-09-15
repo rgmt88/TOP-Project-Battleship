@@ -5,7 +5,7 @@ export default {
   entry: './src/index.js',
   output: {
     filename: 'main.js',
-    path: path.resolve(process.cwd(), 'dist'),
+    path: path.resolve(process.cwd(), 'main'),
     clean: true, // Cleans the output directory before each build
   },
   module: {
